@@ -1,0 +1,8 @@
+## IDF Component Manager Manifest File
+dependencies:
+  ## Required IDF version
+  idf: ">=5.1.0"
+
+verison: "1.0.0~0-dev1.0+git1.0"
+description: "Simple LED control driver"
+url: "https://github.com/RDobrinov/idf_led_driver.git"
