@@ -60,14 +60,22 @@ esp_err_t lm_init(lm_ledc_config_t *ledc_config) {
         defcfg = ledc_config;
     } else {
         defcfg->ledc_timer = (ledc_timer_config_t) {
+            #if defined(CONFIG_IDF_TARGET_ESP32)
             .speed_mode       = LEDC_HIGH_SPEED_MODE,
+            #else
+            .speed_mode       = LEDC_LOW_SPEED_MODE,
+            #endif
             .timer_num        = LEDC_TIMER_0,
             .duty_resolution  = LEDC_TIMER_12_BIT,
             .freq_hz          = 16000,              // Set output frequency at 16kHz
             .clk_cfg          = LEDC_AUTO_CLK    
         };
         defcfg->ledc_channel = (ledc_channel_config_t) {
-            .speed_mode     = LEDC_HIGH_SPEED_MODE,
+            #if defined(CONFIG_IDF_TARGET_ESP32)
+            .speed_mode       = LEDC_HIGH_SPEED_MODE,
+            #else
+            .speed_mode       = LEDC_LOW_SPEED_MODE,
+            #endif
             .channel        = LEDC_CHANNEL_0,
             .timer_sel      = LEDC_TIMER_0,         
             .intr_type      = LEDC_INTR_DISABLE,    // No interupts
