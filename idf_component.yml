@@ -3,6 +3,6 @@ dependencies:
   ## Required IDF version
   idf: ">=5.1.0"
 
-version: "1.0.0~0-dev1.0+git1.0"
+version: "1.0.1"
 description: "Simple LED control driver"
 url: "https://github.com/RDobrinov/idf_led_driver.git"
