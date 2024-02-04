@@ -11,7 +11,7 @@ ESP IDF component for monochrome LED control. It has been tested with the ESP32,
 
 ## Features
 
-* Thread safe standalone contol task
+* Thread safe standalone control task
 * Fade or switch to new intensity state
 * Up to 1 minute hold period per intensity
 * Up to 2 minutes per LED program state
@@ -40,7 +40,7 @@ or
 ### Example
 ```c
 #include <stdio.h>
-#include "idf_wifi_manager.h"
+#include "idf_led_driver.h"
 
 void app_main(void)
 {
@@ -77,8 +77,8 @@ Max intensity value depends from LEDC timer duty resolution. Duty resolution can
     .duty_resolution  = LEDC_TIMER_12_BIT,
     .freq_hz          = 16000,
     .clk_cfg          = LEDC_AUTO_CLK    
-};
-defcfg->ledc_channel = (ledc_channel_config_t) {
+}
+(ledc_channel_config_t) {
     .speed_mode     = LEDC_HIGH_SPEED_MODE,
     .channel        = LEDC_CHANNEL_0,
     .timer_sel      = LEDC_TIMER_0,         
